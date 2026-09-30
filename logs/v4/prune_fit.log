@@ -1,0 +1,14 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=prune step=fit split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   28.9s | rss   4.8 GB | peak  10.3 GB] pruner training: 9,586,144 pool pairs, 686,083 positive, 35 features (features 28s)
+[100]	es's binary_logloss: 0.0117327	es's auc: 0.999466
+[200]	es's binary_logloss: 0.0113787	es's auc: 0.999501
+[300]	es's binary_logloss: 0.0112394	es's auc: 0.999511
+[400]	es's binary_logloss: 0.0111753	es's auc: 0.999515
+[500]	es's binary_logloss: 0.0111424	es's auc: 0.999515
+[600]	es's binary_logloss: 0.0111234	es's auc: 0.999516
+[700]	es's binary_logloss: 0.01112	es's auc: 0.999515
+[ 1043.7s | rss   5.6 GB | peak  10.3 GB] pruner fitted in 1043s: best iteration 676, auc 0.99952; top: emb_margin_other, addr_tset, b4_score, emb_cos, b2w_rank, addr_jacc, emb_margin_other_prank, b2w_score_pgap
+[ 1043.7s | rss   4.1 GB | peak  10.3 GB] stage prune finished in 1043.7s, peak RSS 10.26 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=prune step=fit split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.0s | rss   0.2 GB | peak   0.2 GB] pruner already fitted (/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/models/prune/prune.txt); skipped
+[    1.0s | rss   0.2 GB | peak   0.2 GB] stage prune finished in 1.0s, peak RSS 0.18 GB

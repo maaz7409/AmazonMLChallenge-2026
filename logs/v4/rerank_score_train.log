@@ -1,0 +1,17 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=rerank step=score split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+The tokenizer you are loading from '/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/models/reranker' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+W0926 21:06:14.789000 65012 torch/_inductor/utils.py:1806] [1/0_1] Not enough SMs to use max_autotune_gemm mode
+[  576.0s | rss   4.3 GB | peak   6.4 GB] reranker train: 1,024,000/3,357,943 pairs (1847/s)
+[ 1244.0s | rss   4.4 GB | peak   6.4 GB] reranker train: 2,048,000/3,357,943 pairs (1675/s)
+[ 2184.8s | rss   4.4 GB | peak   6.4 GB] reranker train: 3,072,000/3,357,943 pairs (1420/s)
+[ 2551.1s | rss   4.4 GB | peak   6.4 GB] reranker [train]: 3,357,943 pairs of 730,718 S1 scored in 2535s
+[ 2551.1s | rss   4.4 GB | peak   6.4 GB] stage rerank finished in 2551.1s, peak RSS 6.39 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=rerank step=score split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   44.1s | rss   1.6 GB | peak   6.3 GB] reranker [train]: 3,357,943 pairs of the needed S1 + 1,255,369 competitor pairs
+[   44.8s | rss   1.5 GB | peak   6.3 GB] reranker [train]: 3,357,943 of 4,613,312 pairs reused from the cache
+The tokenizer you are loading from '/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/models/reranker' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[  587.8s | rss   4.1 GB | peak   6.3 GB] reranker train: 1,024,000/1,255,369 pairs (1916/s)
+[  801.8s | rss   4.1 GB | peak   6.3 GB] reranker [train]: 4,613,312 pairs of 1,429,055 S1 ready (1,255,369 scored now in 757s)
+[  801.8s | rss   4.0 GB | peak   6.3 GB] stage rerank finished in 801.8s, peak RSS 6.32 GB

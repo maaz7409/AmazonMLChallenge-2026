@@ -1,0 +1,6 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=train step=test split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   86.5s | rss   2.6 GB | peak   4.2 GB] stage 1 scored 19,944,225 test pairs in 86s
+[   86.5s | rss   1.6 GB | peak   4.2 GB] stage train finished in 86.5s, peak RSS 4.24 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=train step=test split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   74.3s | rss   2.6 GB | peak   4.2 GB] stage 1 scored 19,944,225 test pairs in 73s
+[   74.4s | rss   1.6 GB | peak   4.2 GB] stage train finished in 74.3s, peak RSS 4.24 GB

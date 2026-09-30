@@ -1,0 +1,98 @@
+[09-26 16:08:24] v4 run on 256 CPUs, GPU: NVIDIA L4
+[09-26 16:08:24] start eda
+[09-26 16:08:24] FAILED eda: see /home/maaz-v3-v4/amazonML2026/logs/v4/eda.log
+[09-26 16:08:51] v4 run on 256 CPUs, GPU: NVIDIA L4
+[09-26 16:08:51] start eda
+[09-26 16:10:12] done  eda (finished in 81.5s)
+[09-26 16:10:12] start normalize
+[09-26 16:11:48] done  normalize (finished in 95.3s)
+[09-26 16:11:48] start lexical_train
+[09-26 16:11:48] start embed_train
+[09-26 16:42:53] done  lexical_train (finished in 1864.0s)
+[09-26 16:42:53] start lexical_test
+[09-26 16:59:55] done  lexical_test (finished in 1022.3s)
+[09-26 17:28:19] done  embed_train (finished in 4589.2s)
+[09-26 17:28:19] start index_train
+[09-26 18:57:43] done  index_train (finished in 5362.7s)
+[09-26 18:57:43] start index_test
+[09-26 18:57:56] start union_train
+[09-26 19:00:10] done  union_train (finished in 133.3s)
+[09-26 19:00:10] start prune_fit
+[09-26 19:17:34] done  prune_fit (finished in 1043.7s)
+[09-26 19:17:34] start select_train
+[09-26 19:21:36] done  select_train (finished in 241.5s)
+[09-26 19:21:36] start features_train
+[09-26 19:23:02] done  features_train (finished in 85.5s)
+[09-26 19:23:02] start stage1_fit
+[09-26 20:03:49] done  stage1_fit (finished in 2446.5s)
+[09-26 20:15:10] done  index_test (finished in 4645.3s)
+[09-26 20:15:10] start rerank_train
+[09-26 20:15:19] start union_test
+[09-26 20:17:00] done  union_test (finished in 100.7s)
+[09-26 20:17:00] start select_test
+[09-26 20:20:09] done  select_test (finished in 188.0s)
+[09-26 20:20:09] start features_test
+[09-26 20:21:17] done  features_test (finished in 68.2s)
+[09-26 20:21:17] start stage1_test
+[09-26 20:22:44] done  stage1_test (finished in 86.5s)
+[09-26 21:05:50] done  rerank_train (finished in 3037.7s)
+[09-26 21:05:50] start rerank_score_train
+[09-26 21:48:24] done  rerank_score_train (finished in 2551.1s)
+[09-26 21:48:24] start rerank_score_test
+[09-26 23:35:40] done  rerank_score_test (finished in 6434.8s)
+[09-26 23:35:40] start stage2
+[09-26 23:37:15] done  stage2 (finished in 94.2s)
+[09-26 23:37:15] start tune
+[09-26 23:37:36] done  tune (finished in 21.1s)
+[09-26 23:37:36] start predict
+[09-26 23:42:02] done  predict (finished in 264.9s)
+[09-26 23:42:02] all done: output/matching_results.tsv + output/candidate_pairs.tsv (validated)
+[09-26 23:42:02] validation F0.5: tuned decision {'method': 'rule', 't_emit': 0.5, 't_add': 0.5, 'rel': 0.8, 'assignment': False, 'assignment_margin': 0.0, 'stack': True}: val macro F0.5 0.99050 {'US': 0.99, 'India': 0.99125}, singleton acc 0.9926, pair P 0.9988 R 0.9730
+[09-27 03:40:47] v4 run on 256 CPUs, GPU: NVIDIA L4
+[09-27 03:40:47] start eda
+[09-27 03:40:47] done  eda (finished in 0.2s)
+[09-27 03:40:47] start normalize
+[09-27 03:40:48] done  normalize (finished in 0.4s)
+[09-27 03:40:48] start lexical_train
+[09-27 03:40:48] start embed_train
+[09-27 03:40:51] done  lexical_train (finished in 3.1s)
+[09-27 03:40:51] start lexical_test
+[09-27 03:40:54] done  embed_train (finished in 4.4s)
+[09-27 03:40:54] start index_train
+[09-27 03:40:54] done  lexical_test (finished in 2.9s)
+[09-27 03:40:56] done  index_train (finished in 2.2s)
+[09-27 03:40:56] start index_test
+[09-27 03:40:59] done  index_test (finished in 2.2s)
+[09-27 03:41:09] start union_train
+[09-27 03:41:11] done  union_train (finished in 1.7s)
+[09-27 03:41:11] start prune_fit
+[09-27 03:41:13] done  prune_fit (finished in 1.0s)
+[09-27 03:41:13] start select_train
+[09-27 03:41:14] done  select_train (finished in 0.9s)
+[09-27 03:41:14] start features_train
+[09-27 03:41:14] start rerank_train
+[09-27 03:41:15] done  features_train (finished in 0.9s)
+[09-27 03:41:15] start stage1_fit
+[09-27 03:41:16] done  stage1_fit (finished in 1.0s)
+[09-27 03:41:16] start union_test
+[09-27 03:41:18] done  union_test (finished in 1.5s)
+[09-27 03:41:18] start select_test
+[09-27 03:41:19] done  select_test (finished in 0.9s)
+[09-27 03:41:19] start features_test
+[09-27 03:41:19] done  rerank_train (finished in 4.1s)
+[09-27 03:41:19] start rerank_score_train
+[09-27 03:41:20] done  features_test (finished in 0.9s)
+[09-27 03:41:20] start stage1_test
+[09-27 03:42:35] done  stage1_test (finished in 74.3s)
+[09-27 03:54:43] done  rerank_score_train (finished in 801.8s)
+[09-27 03:54:43] start rerank_score_test
+[09-27 03:54:46] done  rerank_score_test (finished in 1.9s)
+[09-27 03:54:46] start stage2
+[09-27 03:57:08] done  stage2 (finished in 141.6s)
+[09-27 03:57:08] start tune
+[09-27 03:57:54] done  tune (finished in 46.3s)
+[09-27 03:57:54] start predict
+[09-27 04:02:34] done  predict (finished in 279.2s)
+[09-27 04:02:34] all done: output/matching_results.tsv + output/candidate_pairs.tsv (validated)
+[09-27 04:02:34] validation F0.5: tuned decision {'method': 'rule', 't_emit': 0.55, 't_add': 0.75, 'rel': 0.7, 'assignment': False, 'assignment_margin': 0.0, 'stack': True}: val macro F0.5 0.99078 {'US': 0.99023, 'India': 0.99161}, singleton acc 0.9940, pair P 0.9988 R 0.9741
+[09-27 04:02:34] start pseudo

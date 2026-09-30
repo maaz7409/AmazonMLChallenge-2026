@@ -1,0 +1,35 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=predict step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   69.6s | rss   2.6 GB | peak   4.3 GB] stage 1 scored 19,944,225 test pairs in 69s
+[   70.7s | rss   3.3 GB | peak   4.3 GB] reranker scores attached to 8,139,218 of 19,944,225 test pairs
+[  202.5s | rss   2.9 GB | peak   9.9 GB] test: 19,944,225 scored pairs, 5,850,841 emitted
+[  223.4s | rss   4.4 GB | peak   9.9 GB] wrote outputs (1,634,971 of 1,732,544 S1 with matches, 5,850,841 matched IDs); archived to /home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/artifacts/submissions/20260926-234120
+ML Challenge 2026 — submission validator
+  test dir: /home/1/amazonML2026/dataset/test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (97573 empty, 1634971 non-empty).
+
+WARNING: /home/maaz-v3-v4/amazonML2026/output/no_candidate_file_given.tsv not found — skipping candidate_pairs.tsv checks. It is optional here, but your final submission zip must include output/candidate_pairs.tsv.
+PASS — no blocking issues found. Safe to submit.
+ 
+candidate_pairs.tsv streaming check: PASS
+[  263.8s | rss   4.4 GB | peak   9.9 GB] predict done in 263s; validator exit code 0
+[  264.9s | rss   2.1 GB | peak   9.9 GB] stage predict finished in 264.9s, peak RSS 9.93 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=predict step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   73.6s | rss   2.6 GB | peak   4.3 GB] stage 1 scored 19,944,225 test pairs in 73s
+[   74.4s | rss   3.3 GB | peak   4.3 GB] reranker scores attached to 8,139,218 of 19,944,225 test pairs
+[  214.3s | rss   3.0 GB | peak  10.1 GB] test: 19,944,225 scored pairs, 5,870,153 emitted
+[  217.4s | rss   3.2 GB | peak  10.1 GB] emission profile by country (empty share, matches per matched S1, p of emitted): {"test": {"US": {"s1": 663106, "empty_share": 0.0574, "per_matched_s1": 3.596, "mean_best_p": 0.9435, "mean_emitted_p": 0.9985}, "France": {"s1": 259452, "empty_share": 0.0492, "per_matched_s1": 3.581, "mean_best_p": 0.9522, "mean_emitted_p": 0.9929}, "India": {"s1": 809986, "empty_share": 0.0575, "per_matched_s1": 3.588, "mean_best_p": 0.9433, "mean_emitted_p": 0.9987}}, "validation": {"US": {"s1": 198573, "empty_share": 0.0574, "per_matched_s1": 3.574, "mean_best_p": 0.9436, "mean_emitted_p": 0.9987}, "India": {"s1": 132145, "empty_share": 0.0575, "per_matched_s1": 3.585, "mean_best_p": 0.9434, "mean_emitted_p": 0.9988}}}
+[  238.4s | rss   4.6 GB | peak  10.1 GB] wrote outputs (1,635,160 of 1,732,544 S1 with matches, 5,870,153 matched IDs); archived to /home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/artifacts/submissions/20260927-040153
+ML Challenge 2026 — submission validator
+  test dir: /home/1/amazonML2026/dataset/test
+  required S1 entities: 1732544
+  valid S2/S3 match IDs: 9969589
+  matching_results.tsv: 1732544 rows (97384 empty, 1635160 non-empty).
+
+WARNING: /home/maaz-v3-v4/amazonML2026/output/no_candidate_file_given.tsv not found — skipping candidate_pairs.tsv checks. It is optional here, but your final submission zip must include output/candidate_pairs.tsv.
+PASS — no blocking issues found. Safe to submit.
+ 
+candidate_pairs.tsv streaming check: PASS
+[  277.9s | rss   4.6 GB | peak  10.1 GB] predict done in 277s; validator exit code 0
+[  279.2s | rss   2.2 GB | peak  10.1 GB] stage predict finished in 279.2s, peak RSS 10.14 GB

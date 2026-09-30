@@ -1,0 +1,10 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=stack step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   11.1s | rss   4.7 GB | peak   5.9 GB] reranker scores attached to 3,357,943 of 25,407,078 train pairs
+[   72.6s | rss  10.0 GB | peak  10.5 GB] stage 2: 4,605,648 training pairs, best iteration 260, auc 0.99939, 24s
+[   94.1s | rss   9.3 GB | peak  10.5 GB] stage 2 done in 93s; top features: rr_margin_t 14228597, p_margin_t 6458745, p 1139978, rr_p 853914, t_other_best_p 46337, p_rel_best 35677, rr_gap_best 16654, p_gap_best 10966, prune_p 10282, sib_support 8732
+[   94.2s | rss   2.5 GB | peak  10.5 GB] stage stack finished in 94.2s, peak RSS 10.52 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=stack step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   11.0s | rss   4.8 GB | peak   5.9 GB] reranker scores attached to 4,613,312 of 25,407,078 train pairs
+[  119.1s | rss  10.5 GB | peak  10.8 GB] stage 2: 4,605,648 training pairs, best iteration 475, auc 0.99940, 71s
+[  141.4s | rss   9.7 GB | peak  10.8 GB] stage 2 done in 141s; top features: rr_margin_t 32627894, p_margin_t 9478355, p 1567893, rr_p 578662, p_rel_best 73443, rr_gap_best 47886, rr_t_other_best 34158, t_other_best_p 31460, p_gap_best 24078, sib_support 18665
+[  141.6s | rss   2.6 GB | peak  10.8 GB] stage stack finished in 141.6s, peak RSS 10.82 GB

@@ -1,0 +1,10 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=normalize step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    7.1s | rss   1.3 GB | peak   2.6 GB] normalized train_source1: 2,206,821 records
+[   25.0s | rss   2.7 GB | peak   5.9 GB] normalized train_source2: 5,034,616 records
+[   41.5s | rss   3.9 GB | peak   7.4 GB] normalized train_source3: 5,285,603 records
+[   55.4s | rss   1.7 GB | peak   7.4 GB] normalized test_source1: 1,732,544 records
+[   71.6s | rss   2.9 GB | peak   7.4 GB] normalized test_source2: 4,887,273 records
+[   87.4s | rss   4.2 GB | peak   7.4 GB] normalized test_source3: 5,082,316 records
+[   95.3s | rss   3.6 GB | peak   7.4 GB] stage normalize finished in 95.3s, peak RSS 7.41 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=normalize step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    0.5s | rss   0.4 GB | peak   0.4 GB] stage normalize finished in 0.4s, peak RSS 0.37 GB

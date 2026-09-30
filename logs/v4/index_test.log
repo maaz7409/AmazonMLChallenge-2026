@@ -1,0 +1,13 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=embed step=index split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+The tokenizer you are loading from '/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/models/embedder_ft' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[  686.6s | rss   6.6 GB | peak   6.7 GB] encoded 2,000,000/9,969,589 (2942/s)
+[ 1363.4s | rss   7.6 GB | peak   7.7 GB] encoded 4,000,000/9,969,589 (2948/s)
+[ 2031.1s | rss   8.5 GB | peak   8.6 GB] encoded 6,000,000/9,969,589 (2964/s)
+[ 2695.2s | rss   9.5 GB | peak   9.6 GB] encoded 8,000,000/9,969,589 (2976/s)
+[ 3352.9s | rss  10.4 GB | peak  10.5 GB] encoded 9,969,589/9,969,589 (2979/s)
+[ 4291.1s | rss  10.6 GB | peak  13.5 GB] B4 [test]: 1,732,544 queries, search 353s
+[ 4644.9s | rss  10.7 GB | peak  13.5 GB] reverse search [test]: 9,969,589 targets in 354s
+[ 4645.3s | rss   3.8 GB | peak  13.5 GB] stage embed finished in 4645.3s, peak RSS 13.51 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=embed step=index split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    2.2s | rss   1.1 GB | peak   1.1 GB] B4 [test]: already indexed; skipped
+[    2.2s | rss   1.1 GB | peak   1.1 GB] stage embed finished in 2.2s, peak RSS 1.14 GB

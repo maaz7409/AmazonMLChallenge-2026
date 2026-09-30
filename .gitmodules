@@ -1,0 +1,3 @@
+[submodule "website"]
+	path = website
+	url = https://github.com/maaz7409/amazonml-website.git

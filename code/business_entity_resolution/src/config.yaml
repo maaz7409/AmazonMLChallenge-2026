@@ -1,0 +1,201 @@
+# Central configuration for the business entity resolution pipeline.
+# Relative paths resolve against code/business_entity_resolution/, the directory
+# `python -m src.run_pipeline` is run from.
+
+seed: 42
+version: v4                 # pipeline version tag (stress reports, versions/<tag>/metrics.json)
+
+paths:
+  data_dir: ../../dataset     # the challenge's dataset/ folder, with train/ and test/ as shipped
+  output_dir: ../../output    # matching_results.tsv and candidate_pairs.tsv are written here
+  # Root for heavy, regenerable state: artifacts/ (parquet caches, embeddings, indexes,
+  # reports) and models/ (fine-tuned weights). The BER_WORK_DIR environment variable
+  # overrides it, e.g. to keep multi-GB files out of a cloud-synced folder.
+  work_dir: .
+
+# Parallelism; these three settings change speed and memory only, never results.
+workers: 24                 # worker processes (normalization, TF-IDF vectorization; ~150 MB each)
+threads: 64                 # threads for LightGBM, sparse top-K search and rapidfuzz; set it to the
+                            # machine's CPU count when that is below 64
+part_procs: 6               # forked processes for part-parallel feature/pruner work (~3-5 GB each)
+
+eda:
+  n_example_pairs: 20       # random labeled (S1, target) pairs printed for inspection
+  n_example_singletons: 10  # random S1 records with no labeled match
+
+split:                      # disjoint samples of the training S1 records ("roles", src/io.py)
+  val_frac: 0.15            # share of train S1 IDs held out for validation (seeded hash)
+  train_s1: 350000          # role 1: stage 1's training sample (the rerankers draw from it too)
+  embed_s1: 200000          # role 3: the embedder's and pruner's own sample, disjoint from roles 1
+                            # and 0, so embedding features are out-of-sample for every model downstream
+  block_all_train_s1: true  # also block the remaining train S1 (role 0), so every target's
+                            # competing S1 records exist on train as they do on test
+
+blocking:
+  n_features: 4194304       # 2**22 hash buckets for n-grams / words
+  # Per TF-IDF blocker: grams in more than max_df of the split's docs are not used for
+  # retrieval, and each S1 record queries with its query_top_m rarest grams.
+  # Run in this order. The char 3-gram blocker b2 (max_df 0.01, query_top_m 10) is
+  # defined but off: on a 20k validation sample it added <1 point of pair recall to the
+  # other blockers for ~60 min of test-time search.
+  tfidf:
+    b2w: {max_df: 0.02, query_top_m: 8}     # words of name_core + address_core
+    b1: {max_df: 0.002, query_top_m: 20}    # char_wb 2-4 grams of name_ascii
+  k_max: 30                 # targets retrieved per TF-IDF blocker and by B4
+  # The POOL the candidate pruner ranks (~48 per S1). The candidate set is the pruner's best
+  # `prune.k` per S1 (see prune:).
+  k: {b4: 30, b2w: 20, b1: 5, keys: []}
+  set: v4                   # features/<split>_v4
+  union_prune: true         # drop pairs beyond the final cutoffs before the union (bounds memory)
+  b4: ft                    # embedding model whose B4 results join the union: "ft" (fine-tuned) or
+                            # "base"; "ft" per artifacts/embeddings/chosen.json (recall@20 +0.009 US,
+                            # +0.108 India)
+  report_ks: [10, 20, 30, 50]
+  chunk: 50000              # S1 rows per sparse_dot_topn call
+  key_block_cap: 100        # B3 key blocks with more targets are skipped (B3 is off: keys: [])
+  s1_per_part: 50000        # S1 records per candidates parquet part
+
+stress:                     # development tool (`--stage stress`): fixed stress-test set from validation S1
+  slice_size: 400           # S1 records sampled per edge-case slice
+  synth_size: 2000          # S1 records in the synthetic France-style mini-universe
+  synth_singleton_share: 0.3
+  flag_gap: 0.05            # rows more than this below V overall get example errors
+
+embed:                      # blocker B4: fine-tuned bi-encoder (src/embed_finetune.py)
+  model: Snowflake/snowflake-arctic-embed-m-v2.0
+  max_seq_length: 64        # p99 text length is 47 tokens
+  dim: 256                  # Matryoshka truncation
+  encode_batch: 1024        # inference batch (24 GB card); changes speed only
+  eval_queries: 20000       # fixed validation S1 sample for recall@k
+  eval_k: 20
+  train_rows_max: 2000000
+  batch_size: 256           # effective batch (CachedMNRL)
+  mini_batch_size: 128      # 24 GB card
+  lr: 2.0e-5
+  train_role: 3             # trains on its own S1 sample (split.embed_s1)
+
+prune:                      # stage 0: learned candidate pruner over the blocking pool (src/prune.py)
+  enabled: true
+  train_role: 3             # fitted on the embedder's S1 sample (never used downstream)
+  k: 14                     # at most this many candidates per S1
+  k_min: 10                 # the best k_min are always kept; ranks k_min+1..k need prune_p >= min_p
+  min_p: 0.001
+  always_b4: 5              # each S1's 5 nearest embedding neighbours are always kept (France safety net)
+  params: {learning_rate: 0.1, num_leaves: 63, feature_fraction: 0.9, min_data_in_leaf: 200, lambda_l2: 1.0}
+  max_rounds: 2000
+  early_stopping: 50
+
+lgbm:                       # stage 1 (src/train.py)
+  # folds: 1 = one fit on 4/5 of the training-sample S1 groups, early-stopped on the other
+  # fifth (the protocol of src/experiment.py, whose cached fit and scores the train stage
+  # reuses); 5 = GroupKFold by S1 with fold-averaged scores (5x the scoring time).
+  folds: 1
+  # lambda_l2: without it, validation log-loss rose after ~110 rounds at lr 0.1 (Newton steps
+  # on near-pure leaves with tiny hessians); L2 on leaf values bounds them.
+  params: {learning_rate: 0.1, num_leaves: 63, feature_fraction: 0.8, min_data_in_leaf: 100, lambda_l2: 1.0}
+  max_rounds: 5000
+  early_stopping: 100
+  log_every: 100
+  monotone: false           # domain-knowledge monotone constraints (train.monotone_constraints); -0.5 points (-0.005) on validation
+  drop_features: []
+
+rerank:                     # reranker (a): mmBERT-base cross-encoder, a stage-2 feature (src/rerank.py)
+  model: jhu-clsp/mmBERT-base
+  max_length: 128           # p99 record length ~47 tokens; 96 truncated some pairs
+  train_s1: 150000          # role-1 S1 records whose pairs train the reranker
+  neg_per_pos: 3            # up to 3 negatives per positive: 75% hardest by pruner p, 25% random
+  batch_size: 64            # 24 GB card; length-grouped batches
+  lr: 3.0e-5
+  score_low: 0.02           # re-score every candidate with stage-1 p >= this ...
+  score_top: 2              # ... plus each S1's 2 best by stage-1 p ...
+  score_top_emb: 3          # ... plus its 3 nearest by embedding cosine (independent of stage 1)
+  score_batch: 512          # inference batch; changes speed only
+  score_workers: 6          # processes tokenizing scoring batches ahead of the GPU (0 = in the main process)
+  text: norm                # "norm" = "{name_ascii} | {address_norm}"; the raw round sets "raw" =
+                            # "{business_name} | {business_address}" as shipped (see raw: below)
+  score_loco: false         # also score the per-country stage-2 samples (only for LOCO experiments)
+  complete_competition: true  # on train also score every S1 competing for the targets of the scored
+                            # S1, so the reranker target competition (stage 2's top feature) is as
+                            # complete on train/validation as on test
+
+stack:                      # stage 2: graph model over stage-1 probabilities (src/stack.py)
+  enabled: true
+  rerank: true              # reranker features (src/rerank.py)
+  train_s1: 400000          # role-0 train S1 records (never seen by stage 1) whose pairs train stage 2
+  # stage-1 pair features stage 2 sees next to the graph features (carried in the preds files)
+  pair_features: [emb_cos, emb_margin_vs_other_s1, prune_p, name_core_tset, addr_tset, name_idf_jacc,
+                  addr_idf_jacc, house_eq, t_addr_empty, name_freq_t_in_s1, name_pc_max_unmatched_idf_t]
+  params: {learning_rate: 0.05, num_leaves: 63, feature_fraction: 0.8, min_data_in_leaf: 100, lambda_l2: 1.0}
+  max_rounds: 5000
+  early_stopping: 100
+
+decide:
+  assignment: false         # exclusivity: each target only for its highest-p S1 (needs block_all_train_s1)
+  assignment_margin: 0.0    # drop a target everywhere when its best S1 beats the runner-up by less than this
+  selection: rule           # "rule" (grid below) or "expected_f" (per-S1 expected-F0.5 on calibrated p)
+  ef_grid:                  # expected_f: miss probability, logit temperature a and shift b
+    miss: [0.0, 0.02, 0.05, 0.1]
+    a: [0.8, 1.0, 1.2]
+    b: [-0.5, -0.25, 0.0, 0.25, 0.5]
+  grid:                     # rule: searched exhaustively on validation macro F0.5
+    t_emit: [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85]
+    t_add: [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
+    rel: [0.0, 0.4, 0.6, 0.7, 0.8, 0.9]
+
+raw:                        # round 3 (`--stage raw`, `bash run_v4.sh raw`; README.md): reranker (c), a
+                            # second mmBERT reranker on the records as shipped (original case, accents,
+                            # punctuation, scripts); same model as rerank: above, settings in raw.rerank.
+                            # Outputs: output/<variant>/ for each stage-2 variant (run_pipeline.RAW_VARIANTS);
+                            # the final submission is "rawpl2" (with members (b) and (d)).
+  train_s1: 350000          # role-1 S1 whose pairs train it: all of stage 1's sample (reranker (a): 150k)
+  pseudo:                   # second self-training round, mixed into the same training (needs a finished
+                            # round 2: preds/test_pl.parquet); see pseudo: below for the keys
+    enabled: true
+    source_tag: _pl         # decisions of round 2's model (LB 0.986), not round 1's
+    hi: 0.90                # looser bar than round 2 (0.95 / 0.05): more of the unseen country qualifies
+    lo: 0.10
+    lo_single: 0.05
+    unseen_s1: 120000       # qualifying S1 of a country absent from training (round 2: 100k)
+    seen_s1: 15000
+    neg_per_pos: 2
+  train_frac: 0.3           # share of the train-split pairs used (every pseudo pair is kept): raw text has
+                            # ~2x the tokens of normalized text, so a pair costs ~2x; the full share
+                            # projected ~13 h of training on an L4
+  rerank:                   # reranker settings of this round only
+    max_length: 96          # raw p98 ~96 tokens (reranker (a): 128); ~25% faster training and scoring
+    batch_size: 128         # 24 GB card; lr sqrt-scaled from 3e-5 at 64
+    lr: 4.2e-5
+    score_low: 0.02         # the same pair selection as reranker (a)
+    score_top_emb: 3
+    tta_band: null          # both-order scoring of uncertain pairs ([0.02, 0.98]) is off
+  second:                   # member (d): a SECOND raw reranker for the variants "rawpl2*" (steps handoff ->
+                            # train2 -> score2, on this or another GPU machine; README.md): the two-stage
+                            # recipe (train pairs first, then pseudo pairs + replay at a low rate), another seed
+    seed: 43
+    batch_size: 128         # 24 GB card; lr sqrt-scaled from 3e-5 at 64
+    lr: 4.2e-5
+    train_frac: 0.6         # share of the train-split pairs in stage A
+    replay: 0.3             # replayed train pairs per pseudo pair in stage B
+    lr_pseudo: 1.0e-5
+    rerank: {tta_band: null}  # scoring settings of member (d) (no both-order scoring)
+  assignment_margin: 0.0    # variants "pla" / "rawpla" / "rawplxa": exclusivity on stage-2 p (decide.assignment);
+                            # a target is dropped everywhere when its best S1 beats the runner-up by less than this
+  extra_pairs:              # variants "plx" / "rawplx" / "*xa": per-pair probabilities of a separate pipeline
+                            # of ours (NOT included in this repository; NaN where it lacks the pair), joined
+                            # by raw-file row positions. The final variant does not use them; the variants
+                            # are skipped when these files are missing.
+    train: extra/train_pairs_x.parquet
+    test: extra/test_pairs_x.parquet
+    columns: [x_p1, x_rr]
+
+pseudo:                     # round 2 (`--stage pseudo`): self-training, reranker (b). It trains reranker (a)
+                            # further on the model's own confident TEST decisions (no labels, no external
+                            # data); see README.md.
+  hi: 0.95                  # an S1 qualifies when every emitted pair has stage-2 p >= hi ...
+  lo: 0.05                  # ... and every other candidate p <= lo
+  lo_single: 0.02           # or it emits nothing and its best candidate has p <= lo_single
+  unseen_s1: 100000         # qualifying S1 used per country absent from training (France)
+  seen_s1: 15000            # ... per training country (US, India)
+  neg_per_pos: 2
+  replay: 0.3               # replayed training pairs per pseudo pair (against forgetting)
+  lr: 1.0e-5

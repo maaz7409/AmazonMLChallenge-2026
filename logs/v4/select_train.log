@@ -1,0 +1,110 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=prune step=select split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[  241.5s | rss   3.9 GB | peak  10.3 GB] pruned [train]: 106,178,418 pool pairs -> 25,407,078 kept (11.51 per S1) in 230.0s
+{
+ "pool": {
+  "pair_recall": 0.9959,
+  "entity_recall_ceiling": 0.9858,
+  "f05_ceiling": 0.9988,
+  "mean_cands": 48.1,
+  "p99_cands": 55,
+  "max_cands": 55,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999953378391943
+ },
+ "top8": {
+  "pair_recall": 0.9926,
+  "entity_recall_ceiling": 0.9746,
+  "f05_ceiling": 0.9981,
+  "mean_cands": 8.0,
+  "p99_cands": 8,
+  "max_cands": 8,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999992248226516
+ },
+ "top10": {
+  "pair_recall": 0.9945,
+  "entity_recall_ceiling": 0.9809,
+  "f05_ceiling": 0.9984,
+  "mean_cands": 10.0,
+  "p99_cands": 10,
+  "max_cands": 10,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999990310283144
+ },
+ "top12": {
+  "pair_recall": 0.9951,
+  "entity_recall_ceiling": 0.983,
+  "f05_ceiling": 0.9986,
+  "mean_cands": 12.0,
+  "p99_cands": 12,
+  "max_cands": 12,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999988372339773
+ },
+ "top14": {
+  "pair_recall": 0.9954,
+  "entity_recall_ceiling": 0.984,
+  "f05_ceiling": 0.9986,
+  "mean_cands": 14.0,
+  "p99_cands": 14,
+  "max_cands": 14,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999986434396402
+ },
+ "top16": {
+  "pair_recall": 0.9956,
+  "entity_recall_ceiling": 0.9847,
+  "f05_ceiling": 0.9987,
+  "mean_cands": 16.0,
+  "p99_cands": 16,
+  "max_cands": 16,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.999998449645303
+ },
+ "top20": {
+  "pair_recall": 0.9958,
+  "entity_recall_ceiling": 0.9855,
+  "f05_ceiling": 0.9987,
+  "mean_cands": 20.0,
+  "p99_cands": 20,
+  "max_cands": 20,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999980620566289
+ },
+ "final": {
+  "pair_recall": 0.9953,
+  "entity_recall_ceiling": 0.9835,
+  "f05_ceiling": 0.9986,
+  "mean_cands": 11.5,
+  "p99_cands": 16,
+  "max_cands": 19,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999988843447678
+ },
+ "final_per_country": {
+  "US": {
+   "pair_recall": 0.9957,
+   "entity_recall_ceiling": 0.9848,
+   "f05_ceiling": 0.9987,
+   "mean_cands": 11.6,
+   "p99_cands": 16,
+   "max_cands": 19,
+   "no_cands_pct": 0.0,
+   "reduction_ratio": 0.9999988726804238
+  },
+  "India": {
+   "pair_recall": 0.9946,
+   "entity_recall_ceiling": 0.9815,
+   "f05_ceiling": 0.9985,
+   "mean_cands": 11.3,
+   "p99_cands": 15,
+   "max_cands": 18,
+   "no_cands_pct": 0.0,
+   "reduction_ratio": 0.9999989018726636
+  }
+ }
+}
+[  241.6s | rss   2.4 GB | peak  10.3 GB] stage prune finished in 241.5s, peak RSS 10.27 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=prune step=select split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.0s | rss   0.2 GB | peak   0.2 GB] pruned candidates [train] up to date; skipped
+[    1.0s | rss   0.2 GB | peak   0.2 GB] stage prune finished in 0.9s, peak RSS 0.17 GB

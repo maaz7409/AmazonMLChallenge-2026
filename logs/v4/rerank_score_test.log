@@ -1,0 +1,16 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=rerank step=score split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   67.1s | rss   3.0 GB | peak   4.7 GB] stage 1 scored 19,944,225 test pairs in 65s
+The tokenizer you are loading from '/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution/models/reranker' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+[  602.6s | rss   5.1 GB | peak   7.3 GB] reranker test: 1,024,000/8,139,218 pairs (1985/s)
+[ 1190.1s | rss   5.2 GB | peak   7.3 GB] reranker test: 2,048,000/8,139,218 pairs (1856/s)
+[ 1817.3s | rss   5.3 GB | peak   7.3 GB] reranker test: 3,072,000/8,139,218 pairs (1775/s)
+[ 2497.3s | rss   5.3 GB | peak   7.3 GB] reranker test: 4,096,000/8,139,218 pairs (1699/s)
+[ 3263.8s | rss   5.3 GB | peak   7.3 GB] reranker test: 5,120,000/8,139,218 pairs (1612/s)
+[ 4167.8s | rss   5.3 GB | peak   7.3 GB] reranker test: 6,144,000/8,139,218 pairs (1506/s)
+[ 5221.1s | rss   5.3 GB | peak   7.3 GB] reranker test: 7,168,000/8,139,218 pairs (1396/s)
+[ 6434.8s | rss   5.2 GB | peak   7.3 GB] reranker [test]: 8,139,218 pairs of 1,732,544 S1 scored in 6354s
+[ 6434.8s | rss   5.2 GB | peak   7.3 GB] stage rerank finished in 6434.8s, peak RSS 7.33 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=rerank step=score split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    2.0s | rss   0.6 GB | peak   0.6 GB] reranker scores [test] up to date; skipped
+[    2.0s | rss   0.6 GB | peak   0.6 GB] stage rerank finished in 1.9s, peak RSS 0.62 GB

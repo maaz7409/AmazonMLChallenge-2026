@@ -1,0 +1,100 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=block step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.5s | rss   2.8 GB | peak   2.9 GB] blocking train: 2,206,821 query S1 of 2,206,821; 10,320,219 targets
+[    3.3s | rss   5.4 GB | peak   6.0 GB] b3 pairs: k_name 0, k_postal 0, k_house 0, k_rare2 0
+[   69.1s | rss   9.8 GB | peak  12.9 GB] union [US]: 62,751,582 candidate pairs
+[  119.6s | rss   8.8 GB | peak  12.9 GB] union [India]: 43,426,836 candidate pairs
+{
+ "union": [],
+ "single_blocker": [
+  {
+   "blocker": "k_name",
+   "pair_recall": 0.0,
+   "entity_recall_ceiling": 0.0,
+   "f05_ceiling": 0.056,
+   "mean_cands": 0.0,
+   "p99_cands": 0,
+   "max_cands": 0,
+   "no_cands_pct": 100.0,
+   "reduction_ratio": 1.0
+  },
+  {
+   "blocker": "k_postal",
+   "pair_recall": 0.0,
+   "entity_recall_ceiling": 0.0,
+   "f05_ceiling": 0.056,
+   "mean_cands": 0.0,
+   "p99_cands": 0,
+   "max_cands": 0,
+   "no_cands_pct": 100.0,
+   "reduction_ratio": 1.0
+  },
+  {
+   "blocker": "k_house",
+   "pair_recall": 0.0,
+   "entity_recall_ceiling": 0.0,
+   "f05_ceiling": 0.056,
+   "mean_cands": 0.0,
+   "p99_cands": 0,
+   "max_cands": 0,
+   "no_cands_pct": 100.0,
+   "reduction_ratio": 1.0
+  },
+  {
+   "blocker": "k_rare2",
+   "pair_recall": 0.0,
+   "entity_recall_ceiling": 0.0,
+   "f05_ceiling": 0.056,
+   "mean_cands": 0.0,
+   "p99_cands": 0,
+   "max_cands": 0,
+   "no_cands_pct": 100.0,
+   "reduction_ratio": 1.0
+  }
+ ],
+ "final": {
+  "K": {
+   "b4": 30,
+   "b2w": 20,
+   "b1": 5,
+   "keys": []
+  },
+  "pair_recall": 0.9959,
+  "entity_recall_ceiling": 0.9858,
+  "f05_ceiling": 0.9988,
+  "mean_cands": 48.1,
+  "p99_cands": 55,
+  "max_cands": 55,
+  "no_cands_pct": 0.0,
+  "reduction_ratio": 0.9999953378391943
+ },
+ "per_country": [
+  {
+   "country": "US",
+   "pair_recall": 0.9966,
+   "entity_recall_ceiling": 0.9878,
+   "f05_ceiling": 0.9989,
+   "mean_cands": 47.4,
+   "p99_cands": 54,
+   "max_cands": 55,
+   "no_cands_pct": 0.0,
+   "reduction_ratio": 0.9999954061905988
+  },
+  {
+   "country": "India",
+   "pair_recall": 0.995,
+   "entity_recall_ceiling": 0.9829,
+   "f05_ceiling": 0.9986,
+   "mean_cands": 49.2,
+   "p99_cands": 55,
+   "max_cands": 55,
+   "no_cands_pct": 0.0,
+   "reduction_ratio": 0.9999952351282068
+  }
+ ]
+}
+[  133.2s | rss   7.6 GB | peak  12.9 GB] blocking train done in 125.5s
+[  133.3s | rss   7.4 GB | peak  12.9 GB] stage block finished in 133.3s, peak RSS 12.86 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=block step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.6s | rss   2.8 GB | peak   3.0 GB] blocking train: 2,206,821 query S1 of 2,206,821; 10,320,219 targets
+[    1.7s | rss   2.9 GB | peak   3.0 GB] union [train] already built; skipped
+[    1.7s | rss   2.8 GB | peak   3.0 GB] stage block finished in 1.7s, peak RSS 2.96 GB

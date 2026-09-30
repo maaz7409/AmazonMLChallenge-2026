@@ -1,0 +1,14 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=block step=lexical split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    6.0s | rss   5.3 GB | peak   5.3 GB] b2w: document frequencies over 11,702,133 docs in 3s; 1,461,320 grams seen, 56 above max_df
+[  270.9s | rss   6.0 GB | peak   6.1 GB] b2w [US]: 663,106 queries x 3,817,031 targets (target nnz 26,903,293); vectorize 3s, search 262s
+[  351.4s | rss   5.6 GB | peak   6.1 GB] b2w [France]: 259,452 queries x 1,434,993 targets (target nnz 8,276,484); vectorize 1s, search 79s
+[  908.9s | rss   7.2 GB | peak   7.3 GB] b2w [India]: 809,986 queries x 4,717,565 targets (target nnz 41,325,790); vectorize 2s, search 555s
+[  912.0s | rss   5.0 GB | peak   7.3 GB] b2w [test]: 1,732,544 queries in 910s
+[  923.7s | rss   5.8 GB | peak   7.3 GB] b1: document frequencies over 11,702,133 docs in 11s; 328,212 grams seen, 3,486 above max_df
+[  977.8s | rss   6.3 GB | peak   7.3 GB] b1 [US]: 663,106 queries x 3,817,031 targets (target nnz 39,494,174); vectorize 7s, search 47s
+[  985.7s | rss   6.1 GB | peak   7.3 GB] b1 [France]: 259,452 queries x 1,434,993 targets (target nnz 9,127,715); vectorize 3s, search 5s
+[ 1018.9s | rss   6.7 GB | peak   7.3 GB] b1 [India]: 809,986 queries x 4,717,565 targets (target nnz 36,980,938); vectorize 6s, search 27s
+[ 1022.0s | rss   5.6 GB | peak   7.3 GB] b1 [test]: 1,732,544 queries in 110s
+[ 1022.4s | rss   3.7 GB | peak   7.3 GB] stage block finished in 1022.3s, peak RSS 7.34 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=block step=lexical split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    2.9s | rss   4.5 GB | peak   5.1 GB] stage block finished in 2.9s, peak RSS 5.09 GB

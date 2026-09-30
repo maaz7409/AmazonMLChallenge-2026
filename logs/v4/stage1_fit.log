@@ -1,0 +1,22 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=train step=fit split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   23.0s | rss   0.8 GB | peak   1.4 GB] roles 1-2 feature subset written in 22s
+[100]	es's binary_logloss: 0.0320749	es's auc: 0.998791
+[200]	es's binary_logloss: 0.0300842	es's auc: 0.998947
+[300]	es's binary_logloss: 0.0294731	es's auc: 0.998985
+[400]	es's binary_logloss: 0.0291585	es's auc: 0.999002
+[500]	es's binary_logloss: 0.0288592	es's auc: 0.99902
+[600]	es's binary_logloss: 0.0286995	es's auc: 0.999027
+[700]	es's binary_logloss: 0.0285482	es's auc: 0.999036
+[800]	es's binary_logloss: 0.0284559	es's auc: 0.99904
+[900]	es's binary_logloss: 0.0283988	es's auc: 0.999042
+[1000]	es's binary_logloss: 0.0283538	es's auc: 0.999042
+[1100]	es's binary_logloss: 0.0283115	es's auc: 0.999042
+[1200]	es's binary_logloss: 0.0282945	es's auc: 0.999042
+[1300]	es's binary_logloss: 0.0282511	es's auc: 0.999045
+[1400]	es's binary_logloss: 0.028238	es's auc: 0.999045
+[1500]	es's binary_logloss: 0.0282492	es's auc: 0.999045
+[ 2446.5s | rss   3.1 GB | peak  16.3 GB] train stage (single fit, best iteration 1411) done in 2446s; top features: prune_p, emb_margin_vs_other_s1, emb_is_t_argmax, prune_p_gap, b2w_margin_vs_other_s1, emb_cos, name_max_unmatched_idf_t, name_pc_max_unmatched_idf_t, num_max_unmatched_idf_t, legal_eq
+[ 2446.5s | rss   1.6 GB | peak  16.3 GB] stage train finished in 2446.5s, peak RSS 16.30 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=train step=fit split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.0s | rss   1.2 GB | peak   1.2 GB] stage 1 already fitted and scored; skipped
+[    1.0s | rss   1.2 GB | peak   1.2 GB] stage train finished in 1.0s, peak RSS 1.21 GB

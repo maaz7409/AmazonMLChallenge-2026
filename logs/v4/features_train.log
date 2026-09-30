@@ -1,0 +1,7 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=features step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[   35.6s | rss   8.8 GB | peak  14.5 GB] features train: record tables ready in 35s (with embedding features); 45 parts to compute
+[   85.5s | rss   8.8 GB | peak  14.5 GB] features train done: 25,407,078 new pairs in 85s
+[   85.5s | rss   6.2 GB | peak  14.5 GB] stage features finished in 85.5s, peak RSS 14.50 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=features step=None split=train work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    0.9s | rss   0.2 GB | peak   0.2 GB] features train: all 45 parts up to date; skipped
+[    0.9s | rss   0.2 GB | peak   0.2 GB] stage features finished in 0.9s, peak RSS 0.17 GB

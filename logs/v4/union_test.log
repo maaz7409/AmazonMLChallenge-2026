@@ -1,0 +1,12 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=block step=None split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.5s | rss   2.6 GB | peak   2.8 GB] blocking test: 1,732,544 query S1 of 1,732,544; 9,969,589 targets
+[    3.1s | rss   4.7 GB | peak   5.3 GB] b3 pairs: k_name 0, k_postal 0, k_house 0, k_rare2 0
+[   38.2s | rss   7.6 GB | peak   9.1 GB] union [US]: 31,510,648 candidate pairs
+[   55.4s | rss   5.9 GB | peak   9.1 GB] union [France]: 12,970,921 candidate pairs
+[   94.6s | rss   6.4 GB | peak   9.1 GB] union [India]: 39,691,238 candidate pairs
+[  100.6s | rss   4.4 GB | peak   9.1 GB] blocking test done in 99.7s
+[  100.7s | rss   3.6 GB | peak   9.1 GB] stage block finished in 100.7s, peak RSS 9.12 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=block step=None split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    1.4s | rss   2.7 GB | peak   2.8 GB] blocking test: 1,732,544 query S1 of 1,732,544; 9,969,589 targets
+[    1.5s | rss   2.7 GB | peak   2.8 GB] union [test] already built; skipped
+[    1.5s | rss   2.7 GB | peak   2.8 GB] stage block finished in 1.5s, peak RSS 2.81 GB

@@ -1,0 +1,6 @@
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=prune step=select split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[  188.0s | rss   8.8 GB | peak   9.9 GB] pruned [test]: 84,172,807 pool pairs -> 19,944,225 kept (11.51 per S1) in 187.1s
+[  188.0s | rss   7.5 GB | peak   9.9 GB] stage prune finished in 188.0s, peak RSS 9.94 GB
+[    0.0s | rss   0.0 GB | peak   0.0 GB] stage=prune step=select split=test work_dir=/home/maaz-v3-v4/amazonML2026/code/business_entity_resolution
+[    0.9s | rss   0.2 GB | peak   0.2 GB] pruned candidates [test] up to date; skipped
+[    0.9s | rss   0.2 GB | peak   0.2 GB] stage prune finished in 0.9s, peak RSS 0.17 GB
