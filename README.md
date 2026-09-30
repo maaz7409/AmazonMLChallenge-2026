@@ -44,7 +44,7 @@ before validating (details in section 8 of the technical README).
 
 ## Authors
 
-@maaz7409
-@AnshulPatil2005
-@KeshavKumar-0
-@Nipun-Shekhar
+[@maaz7409](https://github.com/maaz7409)
+[@AnshulPatil2005](https://github.com/AnshulPatil2005)
+[@KeshavKumar-0](https://github.com/KeshavKumar-0)
+[@Nipun-Shekhar](https://github.com/Nipun-Shekhar)

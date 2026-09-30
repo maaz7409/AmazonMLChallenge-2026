@@ -1,6 +1,9 @@
 # Business Entity Resolution: Team Ballin (Amazon ML Challenge 2026)
 
-**Team:** Ballin ( @maaz7409 @AnshulPatil2005 @KeshavKumar-0 @Nipun-Shekhar )
+**Team:** Ballin ( [@maaz7409](https://github.com/maaz7409)
+[@AnshulPatil2005](https://github.com/AnshulPatil2005)
+[@KeshavKumar-0](https://github.com/KeshavKumar-0)
+[@Nipun-Shekhar](https://github.com/Nipun-Shekhar) )
 
 **Submission:** 29 September 2026
 
